@@ -22,14 +22,13 @@ const Login = () => {
                 console.log('Google Error', error.message);
             })
     }
-
     //Github
     const handleGithub = () => {
         signInWithPopup(auth, gitProvider)
             .then(r => {
-                const gitUser = r.gitUser;
-                // setGoogleUser(user);
-                console.log(gitUser);
+                const user = r.user;
+                setGoogleUser(user);
+                console.log(user);
             })
             .catch((error) => {
                 console.log('Git Error', error.message);
@@ -49,7 +48,10 @@ const Login = () => {
     return (
         <div>
             {googleUser &&
-                <p className="text-lg text-red-500">User: {googleUser.displayName}</p>
+                <>
+                    <p className="text-lg text-red-500">User: {googleUser.displayName}</p>
+                    <p>{googleUser.email}</p>
+                </>
             }
 
             <div className="hero min-h-screen">
