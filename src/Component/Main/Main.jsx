@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
+        <div className="m-6">
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
