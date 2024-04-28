@@ -1,14 +1,13 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, GithubAuthProvider } from "firebase/auth";
 import app from "../../firebase.init";
-import { FaBeer } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import { useState } from "react";
-
-
 
 const Login = () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
+    const gitProvider = new GithubAuthProvider();
     const [googleUser, setGoogleUser] = useState(null)
 
     //Google Sign In
@@ -20,7 +19,20 @@ const Login = () => {
                 console.log(user);
             })
             .catch((error) => {
-                console.log('error happen', error.message);
+                console.log('Google Error', error.message);
+            })
+    }
+
+    //Github
+    const handleGithub = () => {
+        signInWithPopup(auth, gitProvider)
+            .then(r => {
+                const gitUser = r.gitUser;
+                // setGoogleUser(user);
+                console.log(gitUser);
+            })
+            .catch((error) => {
+                console.log('Git Error', error.message);
             })
     }
 
@@ -63,11 +75,15 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
-
                                 {
                                     googleUser ?
                                         <button className="btn btn-warning mt-3 rounded-full" onClick={googleOut}>Sign Out</button> :
-                                        <button onClick={handleSign} className="mx-auto mt-5 border-2 border-orange-700	rounded-full p-2 bg-orange-"> <FaGoogle className="text-orange-700"></FaGoogle></button>  //user ? logout : sign in
+                                        <div className="mx-auto">
+                                            <button onClick={handleSign} className="mx-auto mt-5 border-2 border-orange-700	rounded-full p-2 mr-4"> <FaGoogle className="text-orange-700"></FaGoogle></button>
+                                            <button onClick={handleGithub} className="mx-auto mt-5 border-2 border-black rounded-full p-2 bg-orange-"> <FaGithub className="text-black"></FaGithub></button>
+                                        </div>
+
+                                    //user ? logout : sign in
                                 }
 
                             </div>
