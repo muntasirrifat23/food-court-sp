@@ -93,12 +93,12 @@ const Login = () => {
 
     return (
         <div>
-            {googleUser &&
+            {/* {googleUser &&
                 <>
                     <p className="text-lg text-red-500">User: {googleUser.displayName}</p>
                     <p>{googleUser.email}</p>
                 </>
-            }
+            } */}
 
             <div className="hero min-h-screen">
                 <div className="hero-content">

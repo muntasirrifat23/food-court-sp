@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import image from '../../public/main-icon.png'
+import { useContext } from "react";
+import { AuthContext } from "../Component/Auth/AuthProvider";
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleout = () => {
+        logOut()
+            .then()
+            .catch()
+    }
+
     const NavLink = <p className="font-bold lg:flex">
         <li><Link to='/' className="mr-4">Home</Link> </li>
         <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/register'>Registration</Link></li>       
+        <li><Link to='/register'>Registration</Link></li>
     </p>
 
     return (
@@ -27,8 +37,21 @@ const Header = () => {
                         {NavLink}
                     </ul>
                 </div>
+               
                 <div className="navbar-end">
-                    <p className=" text-2xl font-bold text-red-600">Food Court</p>
+                    {
+                        user ? <p className="flex">
+                            <div className="font-bold mt-3">
+                                {user.displayName}
+                            </div>
+                            <div>
+                                <button onClick={logOut} className="ml-3 btn btn-error text-white">Log Out</button>
+                            </div> </p> :
+                            <>
+                             <Link to='/login'> 
+                            <button className="ml-3 btn btn-success text-white">Log In</button></Link>
+                            </>
+                    }
                 </div>
             </div>
         </div>
