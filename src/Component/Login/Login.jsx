@@ -40,6 +40,7 @@ const Login = () => {
         signOut(auth)
             .then(result => {
                 setGoogleUser(null);
+                console.log(result);
             })
             .catch((error) => {
                 console.log('error happen', error.message);
@@ -76,10 +77,10 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-error text-white">Login</button>
                                 {
                                     googleUser ?
-                                        <button className="btn btn-warning mt-3 rounded-full" onClick={googleOut}>Sign Out</button> :
+                                        <button className="btn btn-black mt-3 rounded-full" onClick={googleOut}>Sign Out</button> :
                                         <div className="mx-auto">
                                             <button onClick={handleSign} className="mx-auto mt-5 border-2 border-orange-700	rounded-full p-2 mr-4"> <FaGoogle className="text-orange-700"></FaGoogle></button>
                                             <button onClick={handleGithub} className="mx-auto mt-5 border-2 border-black rounded-full p-2 bg-orange-"> <FaGithub className="text-black"></FaGithub></button>
