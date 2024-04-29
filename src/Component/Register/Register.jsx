@@ -1,12 +1,16 @@
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from "../../firebase.init";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthProvider";
 
 const Register = () => {
     const auth = getAuth(app);
     const [userError, setUserError] = useState('');
     const [show, setShow] = useState(false);
+
+    const {createUser} = useContext(AuthContext);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -19,6 +23,16 @@ const Register = () => {
             setUserError("Password should be at least 6 character");
             return;
         }
+
+        //Auth Create User
+            createUser(email, password)
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.error(error);
+        })
+    
         //Email-password auth
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
@@ -66,14 +80,15 @@ const Register = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-success text-white font-bold">Register</button>
-
                             </div>
                             <p className="text-red-600">
                                 {
                                     userError && <> {userError}</>
                                 }
                             </p>
+                            <p>Have An Account? Do<Link to='/login' className="ml-1  text-blue-700 font-semibold">Login</Link></p>
                         </form>
+                        
                     </div>
                 </div>
             </div>

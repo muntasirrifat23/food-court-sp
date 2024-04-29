@@ -2,8 +2,10 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, GithubAuthProvid
 import app from "../../firebase.init";
 import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthProvider";
 
 const Login = () => {
     const auth = getAuth(app);
@@ -12,6 +14,8 @@ const Login = () => {
     const [googleUser, setGoogleUser] = useState(null);
     const [userError, setUserError] = useState('');
     const [show, setShow] = useState(false);
+
+    const {signIn}= useContext(AuthContext);
 
     //Log In
     const handleLogIn = e => {
@@ -24,20 +28,23 @@ const Login = () => {
             setUserError("Password should be at least 6 character");
             return;
         }
-        // else if (password === "password") {
-        //     setUserError('Correct');
-        //     return;
-        // }
         // else if(password !== "password") {
         //     setUserError("Enter Correct Password");
         //     return;
         // }
-        
+
+        //Auth Sign In
+            signIn(email, password)
+            .then(r=>{
+                console.log(r)
+            })
+            .catch(error=>{
+                console.error(error)
+            })
 
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 console.log(result);
-                setUserError('');
             })
             .catch(error => {
                 console.error(error.message);
@@ -132,6 +139,8 @@ const Login = () => {
                                 }
 
                             </div>
+                            <p className="mx-auto">Have No Account? Do<Link to='/register' className="ml-1  text-blue-700 font-semibold">Register</Link></p>
+
                         </form>
                         <p className="text-red-600 mx-auto mb-4 font-semibold">
                             {
