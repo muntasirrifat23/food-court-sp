@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
 const Login = () => {
@@ -15,7 +15,12 @@ const Login = () => {
     const [userError, setUserError] = useState('');
     const [show, setShow] = useState(false);
 
-    const {signIn}= useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
+
+    //Reset
+    const [formData, setFormData] = useState({ email: '', password: '' });
+
+    const navigate = useNavigate();
 
     //Log In
     const handleLogIn = e => {
@@ -28,23 +33,23 @@ const Login = () => {
             setUserError("Password should be at least 6 character");
             return;
         }
-        // else if(password !== "password") {
-        //     setUserError("Enter Correct Password");
-        //     return;
-        // }
 
         //Auth Sign In
-            signIn(email, password)
-            .then(r=>{
-                console.log(r)
+        signIn(email, password)
+            .then(r => {
+                console.log(r);
+                setFormData({ email: '', password: '' }); // Reset
+                navigate('/');
             })
-            .catch(error=>{
-                console.error(error)
+            .catch(error => {
+                console.error(error);
             })
 
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 console.log(result);
+                setFormData({ email: '', password: '' }); // Reset form fields
+                navigate('/');
             })
             .catch(error => {
                 console.error(error.message);
@@ -53,7 +58,7 @@ const Login = () => {
     }
 
 
-    //Google Sign In
+    //Google Pop-up
     const handleSign = () => {
         signInWithPopup(auth, provider)
             .then(result => {
@@ -66,7 +71,7 @@ const Login = () => {
             })
     }
 
-    //Github
+    //Github Pop-up
     const handleGithub = () => {
         signInWithPopup(auth, gitProvider)
             .then(r => {

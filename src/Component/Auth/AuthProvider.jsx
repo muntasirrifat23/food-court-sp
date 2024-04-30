@@ -7,15 +7,18 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState({});    
+    const [user, setUser] = useState({}); 
+    const [loading, setLoading] = useState(true);   
 
     //Create 
     const createUser=(email, password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     //Sign In
     const signIn=(email, password)=>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
@@ -24,6 +27,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
             // console.log(currentUser);
             setUser(currentUser);
+            setLoading(false);
         });
         return()=>{
             unSubscribe();
@@ -32,10 +36,11 @@ const AuthProvider = ({ children }) => {
 
     //
     const logOut= ()=>{
+        setLoading(true);
         return signOut(auth);
     }
 
-    const authInfo = { user, createUser, signIn, logOut  }
+    const authInfo = { user, createUser, signIn, logOut , loading }
     
     return (
         <div>
@@ -48,6 +53,7 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
-AuthProvider.PropTypes = {
+
+AuthProvider.propTypes = {
     children: PropTypes.node
 }

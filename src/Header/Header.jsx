@@ -5,14 +5,15 @@ import { AuthContext } from "../Component/Auth/AuthProvider";
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const handleout = () => {
+    const handleOut = () => {
         logOut()
-            .then()
-            .catch()
+        .then()
+        .catch()
     }
 
     const NavLink = <p className="font-bold lg:flex">
-        <li><Link to='/' className="mr-4">Home</Link> </li>
+        <li><Link to='/'>Home</Link> </li>
+        <li><Link to='/details'>Details</Link> </li>
         <li><Link to='/login'>Login</Link></li>
         <li><Link to='/register'>Registration</Link></li>
     </p>
@@ -37,7 +38,7 @@ const Header = () => {
                         {NavLink}
                     </ul>
                 </div>
-               
+
                 <div className="navbar-end">
                     {
                         user ? <p className="flex">
@@ -45,11 +46,11 @@ const Header = () => {
                                 {user.displayName}
                             </div>
                             <div>
-                                <button onClick={logOut} className="ml-3 btn btn-error text-white">Log Out</button>
+                                <button onClick={handleOut} className="ml-3 btn btn-error text-white">Log Out</button>
                             </div> </p> :
                             <>
-                             <Link to='/login'> 
-                            <button className="ml-3 btn btn-success text-white">Log In</button></Link>
+                                <Link to='/login'>
+                                    <button className="ml-3 btn btn-success text-white">Log In</button></Link>
                             </>
                     }
                 </div>
