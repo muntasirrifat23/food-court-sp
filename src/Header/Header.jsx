@@ -17,7 +17,7 @@ const Header = () => {
             .catch()
     }
 
-    const NavLink = <p className="font-bold lg:flex">
+    const NavLink = <p className="font-bold lg:flex text-xl">
         <li><Link to='/'>Home</Link> </li>
         <li><Link to='/details'>Details</Link> </li>
         <li><Link to='/login'>Login</Link></li>
@@ -31,14 +31,14 @@ const Header = () => {
                 <p className="text-purple-800 italic font-semibold text-4xl  underline ">Premium Food Court
                 </p>
                 <p className="font-semibold text-xl mt-2 mb-2">
-                {moment().format(' dddd, Do MMMM, YYYY, h:mm A')}
+                    {moment().format(' dddd, Do MMMM, YYYY, h:mm A')}
                 </p>
 
                 <Marquee className="text-red-700 font-semibold">
-                    Our food court boasts a variety of delicious options, from Asian cuisine to pizza and sandwiches. With quick service and plenty of seating, it is the perfect spot to grab a bite on the go or enjoy a leisurely meal with friends and family. Come hungry and leave satisfied!
+                Our food court boasts a variety of delicious options, from Asian cuisine to pizza and sandwiches. With quick service and plenty of seating, it is the perfect spot to grab a bite on the go or enjoy a leisurely meal with friends and family. Come hungry and leave satisfied!
                 </Marquee>
 
-                
+
 
             </div>
             <div className="navbar bg-base-100">

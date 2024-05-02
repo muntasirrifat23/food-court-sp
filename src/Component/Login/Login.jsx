@@ -105,7 +105,7 @@ const Login = () => {
                 </>
             } */}
 
-            <div className="hero min-h-screen">
+            <div className="hero ">
                 <div className="hero-content">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <h1 className="text-5xl font-bold mx-auto p-4">Login now!</h1>
