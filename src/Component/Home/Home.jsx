@@ -1,12 +1,28 @@
 import { useContext } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
+import LeftPage from "../../Pages/LeftPage/LeftPage";
+import MiddlePage from "../../Pages/MiddlePage/MiddlePage";
+import RightPage from "../../Pages/RightPage/RightPage";
 
 const Home = () => {
     const user = useContext(AuthContext);
     return (
         <div>
             <>{user.displayName}</>
-            home
+
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <div className=" border border-black">
+                    <LeftPage> </LeftPage>
+                </div>
+
+                <div className="col-span-2 border border-black">
+                    <MiddlePage></MiddlePage> 
+                </div>
+
+                <div className="border border-black">
+                    <RightPage></RightPage>           
+                </div>
+            </div>
         </div>
     );
 };

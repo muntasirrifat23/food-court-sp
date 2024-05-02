@@ -2,13 +2,17 @@ import { Link } from "react-router-dom";
 import image from '../../public/main-icon.png'
 import { useContext } from "react";
 import { AuthContext } from "../Component/Auth/AuthProvider";
+
+import pic from '../../public/cover-removebg-preview.png'
+import Marquee from "react-fast-marquee";
+
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const handleOut = () => {
         logOut()
-        .then()
-        .catch()
+            .then()
+            .catch()
     }
 
     const NavLink = <p className="font-bold lg:flex">
@@ -20,6 +24,16 @@ const Header = () => {
 
     return (
         <div>
+            <div className="text-center ">
+                {/* <img src={pic} className="mx-auto"/> */}
+                <p className="text-purple-800 italic font-semibold text-3xl  underline ">Premium Food Court
+                </p>
+
+                <Marquee className="text-red-700 font-semibold">
+                    Our food court boasts a variety of delicious options, from Asian cuisine to pizza and sandwiches. With quick service and plenty of seating, it is the perfect spot to grab a bite on the go or enjoy a leisurely meal with friends and family. Come hungry and leave satisfied!
+                </Marquee>
+
+            </div>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
