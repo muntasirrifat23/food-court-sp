@@ -9,6 +9,8 @@ const LeftPage = () => {
     }, [])
     return (
         <div className="m-4">
+            {/* Food Items */}
+            <section>
             <p className="text-2xl font-bold text-blue-800 mx-auto text-center">Food Items</p>
             <div> 
                {/* <p> {items.length}</p>  */}
@@ -19,6 +21,12 @@ const LeftPage = () => {
                }
 
             </div>
+            </section>
+
+            <section>
+                
+            </section>
+            
         </div>
     );
 };

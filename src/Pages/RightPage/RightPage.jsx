@@ -6,14 +6,19 @@ import chef4 from '../../../public/chef4.jpeg';
 import chef5 from '../../../public/chef5.jpeg';
 import "./RightPage.css"
 
+import banner from '../../../public/banner.png'
 const RightPage = () => {
     return (
         <div className='m-4'>
+            <p className='d-none d-lg-block'>
+            <img src={banner} className='lg:w-full mx-auto mb-4' alt="banner" />
+            </p>
+            
             {/* Section 1 */}
             <section >
-            <div>
+            <div className='text-center'>
                 <p className='font-semibold text-blue-800 text-2xl mb-2'>Connect Us On</p>
-                <div className='flex text-center text-blue-800'>
+                <div className='flex mx-auto text-center text-blue-800'>
                     <FaFacebook className='mr'></FaFacebook>
                     <p>Facebook</p>
                 </div>
@@ -29,11 +34,11 @@ const RightPage = () => {
             </section>
 
             {/* Section 2 */}
-            <section className='font-semibold'>
-            <p className='font-semibold text-blue-800 text-2xl mb-2'>Our Chefs</p>
+            <section className='font-semibold '>
+            <p className='font-semibold text-blue-800 text-2xl mb-2 text-center'>Our Chefs</p>
 
-                <div className='flex mb-4'>
-                    <img src={chef1} alt="" className='' />
+                <div className='flex mb-4 '>
+                    <img src={chef1} alt="" />
                     <p>Masaharu Morimoto</p>
                 </div>
                 <div className='flex mb-4'>
