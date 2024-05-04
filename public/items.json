@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "name": "Chicken Pizza"
+    },
+    {
+        "id": 2,
+        "name": "Chicken Tikka Masala"
+    },
+    {
+        "id": 3,
+        "name": "Beef Stroganoff"
+    },
+    {
+        "id": 4,
+        "name": "Margherita Pizza"
+    },
+    {
+        "id": 5,
+        "name": "Sushi Rolls"
+    },
+    {
+        "id": 6,
+        "name": "Caesar Salad"
+    },
+    {
+        "id": 7,
+        "name": "Thai Soup"
+    },
+    {
+        "id": 8,
+        "name": "Cheese Burger"
+    },
+    {
+        "id": 9,
+        "name": "Butter Chicken"
+    },
+    {
+        "id": 10,
+        "name": "Fish and Chips"
+    },
+    {
+        "id": 11,
+        "name": "French Fry"
+    },
+    {
+        "id": 12,
+        "name": "Falafel Wrap"
+    },
+    {
+        "id": 13,
+        "name": "Lasagna"
+    },
+    {
+        "id": 14,
+        "name": "Shrimp Scampi"
+    },
+    {
+        "id": 15,
+        "name": "Beef Bulgogi"
+    },
+    {
+        "id": 16,
+        "name": "Chicken Parmesan"
+    },
+    {
+        "id": 17,
+        "name": "Veggie Stir-Fry"
+    },
+    {
+        "id": 18,
+        "name": "Eggs Benedict"
+    },
+    {
+        "id": 19,
+        "name": "Burrito Bowl"
+    },
+    {
+        "id": 20,
+        "name": "Chocolate Fondue"
+    },
+    {
+        "id": 21,
+        "name": "Mutton Biryani"
+    },
+    {
+        "id": 22,
+        "name": "Lobster Bisque"
+    },
+    {
+        "id": 23,
+        "name": "Beef Shawarma "
+    },
+    {
+        "id": 24,
+        "name": "Beef Wellington"
+    },
+    {
+        "id": 25,
+        "name": "Chicken Shawarma"
+    },
+    {
+        "id": 26,
+        "name": "Beef Tacos"
+    }
+]
