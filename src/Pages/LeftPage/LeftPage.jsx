@@ -16,7 +16,7 @@ const LeftPage = () => {
                {/* <p> {items.length}</p>  */}
                {
                 items.map(item=><p key={item.id}
-                    className="block font-semibold text-xl mt-2 bg-blue-300 p-2 rounded-xl"
+                    className="block font-semibold text-xl mt-2 bg-purple-300 p-2 rounded-xl"
                 > {item.id}. {item.name}</p>)
                }
 

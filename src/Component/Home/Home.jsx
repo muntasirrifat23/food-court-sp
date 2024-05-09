@@ -10,17 +10,17 @@ const Home = () => {
         <div>
             <>{user.displayName}</>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-                <div className=" border border-black">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
+                <div>
                     <LeftPage> </LeftPage>
                 </div>
 
-                <div className="col-span-2 border border-black">
-                    <MiddlePage></MiddlePage> 
+                <div className="col-span-2">
+                    <MiddlePage></MiddlePage>
                 </div>
 
-                <div className="border border-black">
-                    <RightPage></RightPage>           
+                <div>
+                    <RightPage></RightPage>
                 </div>
             </div>
         </div>

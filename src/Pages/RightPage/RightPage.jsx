@@ -1,7 +1,7 @@
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 import chef1 from '../../../public/chef1.jpeg';
 import chef2 from '../../../public/chef2.jpeg';
-import chef3 from '../../../public/chef3.jpeg';
+// import chef3 from '../../../public/chef3.jpeg';
 import chef4 from '../../../public/chef4.jpeg';
 import chef5 from '../../../public/chef5.jpeg';
 import "./RightPage.css"
@@ -11,7 +11,7 @@ const RightPage = () => {
     return (
         <div className='m-4'>
             <p className='d-none d-lg-block'>
-            <img src={banner} className='lg:w-full mx-auto mb-4' alt="banner" />
+            <img src={banner} className='lg:w-full mx-auto mb-4 rounded-lg' alt="banner" />
             </p>
             
             {/* Section 1 */}
@@ -45,10 +45,10 @@ const RightPage = () => {
                 <img src={chef2} alt="" />
                     <p>David Chang</p>
                 </div>
-                <div className='flex mb-4'>
+                {/* <div className='flex mb-4'>
                     <img src={chef3} alt="" />
                     <p>Yotam Ottolenghi</p>
-                </div>
+                </div> */}
                 <div className='flex mb-4'>
                     <img src={chef4} alt="" />
                     <p>Gaggan Anand</p>
