@@ -1,6 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
 import "./Card.css";
-import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const Card = ({ food }) => {
@@ -31,7 +30,4 @@ const Card = ({ food }) => {
 
 export default Card;
 
-Card.propTypes = {
-    children: PropTypes.node
-}
 

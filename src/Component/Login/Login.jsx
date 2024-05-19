@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import { IoLogInOutline } from "react-icons/io5";
 
 const Login = () => {
     const auth = getAuth(app);
@@ -18,7 +19,7 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
 
     //Reset
-    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [, setFormData] = useState({ email: '', password: '' });
 
     const navigate = useNavigate();
 
@@ -106,20 +107,25 @@ const Login = () => {
             } */}
 
             <div className="hero ">
-                <div className="hero-content">
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <h1 className="text-5xl font-bold mx-auto p-4">Login now!</h1>
+                <div className="hero-content ">
+                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-lime-200 border-4 border-b-lime-700">
+                        <h1 className="text-5xl font-bold mx-auto p-4 text-red-800">Login Here</h1>
 
                         <form onSubmit={handleLogIn} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text font-bold">Email</span>
                                 </label>
                                 <input type="email" name="email" placeholder="Enter Email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-bold ">Password</span>
+                                </label>
+
                                 <p className="flex space-y-2">
-                                    <input type={show ? "text" : "password"} name="password" placeholder="password" className="input input-bordered mr-4" required />
+
+                                    <input type={show ? "text" : "password"} name="password" placeholder="Enter Password" className="input input-bordered mr-4" required />
                                     <span onClick={() => setShow(!show)} >
                                         <p className="text-2xl">
                                             {
@@ -131,7 +137,9 @@ const Login = () => {
                                 </p>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-error text-white">Login</button>
+                            <button className="btn btn-error text-white text-xl font-bold">
+                                    Login <IoLogInOutline />
+                                </button>
                                 {
                                     googleUser ?
                                         <button className="btn btn-black mt-3 rounded-full" onClick={googleOut}>Sign Out</button> :

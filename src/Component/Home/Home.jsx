@@ -39,7 +39,9 @@ const Home = () => {
                         </Card>)
                     }
                 </div>
-                <button className="btn btn-warning mt-6 font-bold mx-auto justify-center card" onClick={()=>setDataLength()}>Show All</button>
+                {/* <button className="btn btn-error text-white text-xl font-bold"> */}
+
+                <button className="btn btn-error mt-6 font-bold mx-auto justify-center card px-12 text-xl " onClick={()=>setDataLength()}>Show All</button>
                 </div>
 
                 <div>
