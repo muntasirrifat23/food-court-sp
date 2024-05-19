@@ -7,41 +7,40 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState({}); 
-    const [loading, setLoading] = useState(true);   
+    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true);
 
     //Create 
-    const createUser=(email, password)=>{
+    const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     //Sign In
-    const signIn=(email, password)=>{
+    const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    //Sign Out 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, currentUser=>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             // console.log(currentUser);
             setUser(currentUser);
             setLoading(false);
         });
-        return()=>{
+        return () => {
             unSubscribe();
         }
     }, [])
 
-    //
-    const logOut= ()=>{
+    //Sign Out 
+    const logOut = () => {
         setLoading(true);
         return signOut(auth);
     }
 
-    const authInfo = { user, createUser, signIn, logOut , loading }
-    
+    const authInfo = { user, createUser, signIn, logOut, loading }
+
     return (
         <div>
             <AuthContext.Provider value={authInfo}>

@@ -10,7 +10,7 @@ const Register = () => {
     const [userError, setUserError] = useState('');
     const [show, setShow] = useState(false);
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -25,14 +25,14 @@ const Register = () => {
         }
 
         //Auth Create User
-            createUser(email, password)
-        .then(result=>{
-            console.log(result.user);
-        })
-        .catch(error=>{
-            console.error(error);
-        })
-    
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
         //Email-password auth
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
@@ -65,12 +65,12 @@ const Register = () => {
                                 <p className="flex space-y-2">
                                     <input type={show ? "text" : "password"} name="password" placeholder="password" className="input input-bordered mr-4" required />
                                     <span onClick={() => setShow(!show)} >
-                                    <p className="text-2xl">
-                                        {
-                                            show ? <FaEyeSlash /> :  <FaRegEye /> 
-                                        }
+                                        <p className="text-2xl">
+                                            {
+                                                show ? <FaEyeSlash /> : <FaRegEye />
+                                            }
                                         </p>
-                                        
+
                                     </span>
                                 </p>
 
@@ -88,7 +88,7 @@ const Register = () => {
                             </p>
                             <p>Have An Account? Do<Link to='/login' className="ml-1  text-blue-700 font-semibold">Login</Link></p>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>

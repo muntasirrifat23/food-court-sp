@@ -14,6 +14,7 @@ import AuthProvider from './Component/Auth/AuthProvider.jsx';
 import Details from './Component/Details/Details.jsx';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,13 +22,17 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
+        loader: ()=>fetch('../public/items.json'),
         element:<Home></Home>
       },
       {
-        path:'/details',
-        element: <Details></Details>
+        path:'/food/:id',        
+        // loader:({params})=>fetch(`../public/items/${params.id}.json`),
+        loader:()=>fetch(`/public/items.json`),
+        element: <Details></Details>,
+
         // element:<PrivateRoute> <Details></Details> </PrivateRoute> //notDone
-      },
+      }, 
       {
         path:'/login',
         element:<Login></Login>

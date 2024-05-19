@@ -17,7 +17,7 @@ const RightPage = () => {
             {/* Section 1 */}
             <section >
             <div className='text-center'>
-                <p className='font-semibold text-blue-800 text-2xl mb-2'>Connect Us On</p>
+                <p className='font-semibold text-white bg-black p-3 rounded-xl text-2xl mb-2'>Connect Us On</p>
                 <div className='flex mx-auto text-center text-blue-800'>
                     <FaFacebook className='mr'></FaFacebook>
                     <p>Facebook</p>
@@ -35,7 +35,7 @@ const RightPage = () => {
 
             {/* Section 2 */}
             <section className='font-semibold '>
-            <p className='font-semibold text-blue-800 text-2xl mb-2 text-center'>Our Chefs</p>
+            <p className='font-semibold text-white bg-black p-3 rounded-xl text-2xl mb-2 text-center'>Our Chefs</p>
 
                 <div className='flex mb-4 '>
                     <img src={chef1} alt="" />

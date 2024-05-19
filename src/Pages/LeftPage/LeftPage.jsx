@@ -11,12 +11,12 @@ const LeftPage = () => {
         <div className="m-4">
             {/* Food Items */}
             <section>
-            <p className="text-2xl font-bold text-blue-800 mx-auto text-center">Food Items</p>
+            <p className="text-2xl font-bold mx-auto text-center  text-white bg-black p-3 rounded-xl mb-4">Food Items</p>
             <div> 
                {/* <p> {items.length}</p>  */}
                {
                 items.map(item=><p key={item.id}
-                    className="block font-semibold text-xl mt-2 bg-purple-300 p-2 rounded-xl"
+                    className="block font-semibold text-xl mt-2 bg-lime-300 p-2 rounded-xl"
                 > {item.id}. {item.name}</p>)
                }
 
