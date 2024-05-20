@@ -2,22 +2,25 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import LeftPage from "../../Pages/LeftPage/LeftPage";
 import RightPage from "../../Pages/RightPage/RightPage";
-
 import { useLoaderData } from "react-router-dom";
 import Card from "./Card";
 
 const Home = () => {
     const user = useContext(AuthContext);
     const [dataLength, setDataLength] = useState(6);
-    const foods = useLoaderData();
 
-    // Ensure foods is an array before proceeding
+    let foods = [];
+    try {
+        foods = useLoaderData();
+    } catch (error) {
+        console.error("Failed to load data:", error);
+    }
+
     const validFoods = Array.isArray(foods) ? foods : [];
 
     return (
         <div>
-            <>{user.displayName}</>
-
+            {user.displayName}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
                 <div>
                     <LeftPage></LeftPage>
