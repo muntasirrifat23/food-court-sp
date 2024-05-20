@@ -8,40 +8,36 @@ import Card from "./Card";
 
 const Home = () => {
     const user = useContext(AuthContext);
-    // const [food, setFoods] = useState([]);
     const [dataLength, setDataLength] = useState(6);
+    const foods = useLoaderData();
 
-    const foods= useLoaderData();
+    // Ensure foods is an array before proceeding
+    const validFoods = Array.isArray(foods) ? foods : [];
 
-    // useEffect(() => {
-    //     fetch('../../../public/items.json')
-    //         .then(res => res.json())
-    //         .then(data => setFoods(data))
-    // }, []);
     return (
         <div>
             <>{user.displayName}</>
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
                 <div>
-                    <LeftPage> </LeftPage>
+                    <LeftPage></LeftPage>
                 </div>
 
                 <div className="col-span-2 m-4">
-
                     {/* Middle Page */}
-                <div className='grid lg:grid-cols-2 gap-4'>
-                    {
-                        foods.slice(0,dataLength).map(food => <Card
-                            key={food.id}
-                            food={food}
-                        >
-                        </Card>)
-                    }
-                </div>
-                {/* <button className="btn btn-error text-white text-xl font-bold"> */}
-
-                <button className="btn btn-error mt-6 font-bold mx-auto justify-center card px-12 text-xl " onClick={()=>setDataLength()}>Show All</button>
+                    <div className='grid lg:grid-cols-2 gap-4'>
+                        {
+                            validFoods.slice(0, dataLength).map(food => (
+                                <Card key={food.id} food={food}></Card>
+                            ))
+                        }
+                    </div>
+                    <button
+                        className="btn btn-error mt-6 font-bold mx-auto justify-center card px-12 text-xl"
+                        onClick={() => setDataLength(validFoods.length)}
+                    >
+                        Show All
+                    </button>
                 </div>
 
                 <div>
