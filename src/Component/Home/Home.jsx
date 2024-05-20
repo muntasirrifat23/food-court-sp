@@ -4,7 +4,7 @@ import LeftPage from "../../Pages/LeftPage/LeftPage";
 import RightPage from "../../Pages/RightPage/RightPage";
 import { useLoaderData } from "react-router-dom";
 import Card from "./Card";
-
+import { useLoaderData } from "react-router-dom";
 const Home = () => {
     const user = useContext(AuthContext);
     const [dataLength, setDataLength] = useState(6);
@@ -12,7 +12,8 @@ const Home = () => {
     let foods = [];
     try {
         foods = useLoaderData();
-    } catch (error) {
+    } 
+    catch (error) {
         console.error("Failed to load data:", error);
     }
 
